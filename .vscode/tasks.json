@@ -1,0 +1,64 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build Debug",
+            "type": "shell",
+            "command": "[ -d ${workspaceFolder}/build/Debug ] || cmake --preset Debug -S ${workspaceFolder} && cmake --build ${workspaceFolder}/build/Debug --config Debug -j$(nproc)",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": ["$gcc"]
+        },
+        {
+            "label": "Build Release",
+            "type": "shell",
+            "command": "[ -d ${workspaceFolder}/build/Release ] || cmake --preset Release -S ${workspaceFolder} && cmake --build ${workspaceFolder}/build/Release --config Release -j$(nproc)",
+            "group": "build",
+            "problemMatcher": ["$gcc"]
+        },
+        {
+            "label": "Configure Debug",
+            "type": "shell",
+            "command": "cmake --preset Debug -S ${workspaceFolder}",
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "Configure Release",
+            "type": "shell",
+            "command": "cmake --preset Release -S ${workspaceFolder}",
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "Flash Debug",
+            "type": "shell",
+            "command": "openocd -f interface/stlink.cfg -f target/stm32f4x.cfg -c 'program ${workspaceFolder}/build/Debug/stm32f411-synth.elf verify reset exit'",
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "Flash Release",
+            "type": "shell",
+            "command": "openocd -f interface/stlink.cfg -f target/stm32f4x.cfg -c 'program ${workspaceFolder}/build/Release/stm32f411-synth.elf verify reset exit'",
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "Clean Debug",
+            "type": "shell",
+            "command": "cmake --build ${workspaceFolder}/build/Debug --target clean",
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "Clean All (wipe build/)",
+            "type": "shell",
+            "command": "rm -rf ${workspaceFolder}/build",
+            "group": "build",
+            "problemMatcher": []
+        }
+    ]
+}

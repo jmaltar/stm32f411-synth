@@ -1,0 +1,13 @@
+CompileFlags:
+  Add:
+    - '-ferror-limit=0'
+    - '-Wno-implicit-int'
+    - '-D_LIBCPP_HAS_NO_THREADS'
+  CompilationDatabase: build/Release
+
+Diagnostics:
+  Suppress:
+    - unused-includes
+    - unknown_typename
+    - unknown_typename_suggest
+    - typename_requires_specqual

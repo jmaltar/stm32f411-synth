@@ -1,0 +1,11 @@
+{
+    "cmake.cmakePath": "cmake",
+    "cmake.preferredGenerators": [
+        "Ninja"
+    ],
+    "clangd.arguments": [
+        "--query-driver=/usr/bin/arm-none-eabi-gcc*,/usr/bin/arm-none-eabi-g++*",
+        "--compile-commands-dir=${workspaceFolder}/build/Release"
+    ],
+    "C_Cpp.intelliSenseEngine": "disabled"
+}
