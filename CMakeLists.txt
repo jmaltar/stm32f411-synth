@@ -50,6 +50,7 @@ set(TINYUSB_DIR /home/jurica/.pico-sdk/sdk/2.2.0/lib/tinyusb/src)
 # Add sources to executable
 target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     Core/Src/main.cpp
+    Core/Src/clock.cpp
     Core/Src/usb_descriptors.c
     # Synthesis engine (shared)
     ${SYNTH_DIR}/adsr.cpp
